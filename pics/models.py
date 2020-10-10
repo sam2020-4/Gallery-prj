@@ -14,3 +14,14 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
+class Image(models.Model):    
+    image_name = models.CharField(max_length=20)
+    description = models.TextField()
+    author = models.CharField(max_length=10, default='admin')
+    image = models.ImageField(upload_to = 'images/')
+    location = models.ForeignKey('Location')
+    category = models.ForeignKey('Category')    
+
+    def __str__(self):
+        return self.image_name
+
