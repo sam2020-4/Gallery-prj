@@ -19,8 +19,8 @@ class Image(models.Model):
     description = models.TextField()
     author = models.CharField(max_length=10, default='admin')
     image = models.ImageField(upload_to = 'images/')
-    location = models.ForeignKey('Location')
-    category = models.ForeignKey('Category')    
+    location = models.ForeignKey('Location',on_delete=models.CASCADE)
+    category = models.ForeignKey('Category',on_delete=models.CASCADE)    
 
     def __str__(self):
         return self.image_name
