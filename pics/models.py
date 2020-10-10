@@ -27,6 +27,11 @@ class Image(models.Model):
     
     def delete_image(self):
         self.delete()
+    
+    def update_image(self, Name=None, category=None):
+        self.image_name = Name if Name else self.image_name
+        self.image_category = category if category else self.image_category 
+        self.save()
 
     def __str__(self):
         return self.image_name
