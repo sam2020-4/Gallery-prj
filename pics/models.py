@@ -48,4 +48,7 @@ class Location(models.Model):
         self.save()
     
     def delete_location(self):
-        self.delete()
+        self.delete()        
+
+     def __str__(self):
+        return self.location_name
