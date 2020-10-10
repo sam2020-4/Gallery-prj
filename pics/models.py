@@ -20,7 +20,7 @@ class Image(models.Model):
     author = models.CharField(max_length=10, default='admin')
     image = models.ImageField(upload_to = 'images/')
     location = models.ForeignKey('Location',on_delete=models.CASCADE)
-    category = models.ForeignKey('Category',on_delete=models.CASCADE)    
+    image_category = models.ForeignKey('Category',on_delete=models.CASCADE)    
 
     def save_image(self):
         self.save()
@@ -35,4 +35,9 @@ class Image(models.Model):
 
     def __str__(self):
         return self.image_name
+    
+    @classmethod
+    def search_by_image_category(cls,search_term):
+        images = cls.objects.filter(image_category__category_name__icontains=search_term)
+        return images
 
