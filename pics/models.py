@@ -19,7 +19,7 @@ class Image(models.Model):
     description = models.TextField()
     author = models.CharField(max_length=10, default='admin')
     image = models.ImageField(upload_to = 'images/')
-    location = models.ForeignKey('Location',on_delete=models.CASCADE)
+    image_location = models.ForeignKey('Location',on_delete=models.CASCADE)
     image_category = models.ForeignKey('Category',on_delete=models.CASCADE)    
 
     def save_image(self):
@@ -41,3 +41,5 @@ class Image(models.Model):
         images = cls.objects.filter(image_category__category_name__icontains=search_term)
         return images
 
+class Location(models.Model):
+    location_name = models.CharField(max_length=30)
