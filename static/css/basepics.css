@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+nav >.navbb {
+    padding-left: 70px;
+    color: white;
+ }
+h2{
+    color: green;
+}
+
+.landing-page{
+    padding-top: 150px;    
+}
+
+/* styling search button */
+

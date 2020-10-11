@@ -51,6 +51,7 @@
 #         self.category.delete_category()
 #         category = Category.objects.all()
 #         self.assertTrue(len(category) == 0)
+
 # class ImageTestClass(TestCase):
 #     def setUp(self):
 #         self.image_location = Location(location_name='Nairobi')

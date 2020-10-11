@@ -4,13 +4,13 @@
 {{block.super}}
 <div class="container">
     <hr>
-    <h2 class="text-text">view images</h2>
+    <h2 class="text-text">View images according to their Location</h2>
     
     <div class="row">
     {% for image in images %}
         <div class="col-md-3">
             <img class="card-img-top img-responsive" id="img{{image.id}}" src="{{image.image.url}}" alt="Card image cap">
-            <p class="card-text">Image Name: {{image.image_name}}.</p> 
+            <!-- <p class="card-text">Image Name: {{image.image_name}}.</p>  -->
             <!-- <p class="card-text">Phic description : {{image.description}}.</p>
             <p class="card-text">Taken in: {{image.image_location}}</p>
             <p class="card-text">Category: {{image.image_category}}</p> -->
