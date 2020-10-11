@@ -18,7 +18,7 @@ class Image(models.Model):
     image_name = models.CharField(max_length=20)
     description = models.TextField()
     author = models.CharField(max_length=10, default='admin')
-    image = models.ImageField(upload_to = 'images/')
+    image = models.ImageField(upload_to = 'media/images/')
     image_location = models.ForeignKey('Location',on_delete=models.CASCADE)
     image_category = models.ForeignKey('Category',on_delete=models.CASCADE)    
 
