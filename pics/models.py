@@ -36,10 +36,10 @@ class Image(models.Model):
     def __str__(self):
         return self.image_name
     
-    @classmethod
-    def search_by_image_category(cls,search_term):
-        images = cls.objects.filter(image_category__category_name__icontains=search_term)
-        return images
+    # @classmethod
+    # def search_by_image_category(cls,search_term):
+    #     pics = cls.objects.filter(image_category__category_name__icontains=search_term)
+    #     return pics
 
 class Location(models.Model):
     location_name = models.CharField(max_length=30)
