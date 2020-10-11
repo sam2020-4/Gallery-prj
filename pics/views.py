@@ -11,7 +11,7 @@ def gallery(request):
     images = Image.objects.all()
     categories = Category.objects.all()
     location = Location.objects.all()
-    return render(request, 'gallery.html', locals())
+    return render(request, 'gallery.html')
 
 def search_category(request):
     if 'image' in request.GET and request.GET["image"]:

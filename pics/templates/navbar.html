@@ -1,13 +1,13 @@
-<!-- navbar here -->
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse bg-black">
   <div class="container-fluid">
-    <div class="navbar-header">      
-      <a class="navbar-brand" href="{% url 'index' %}">Gallery Hub</a>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'gallery' %}">Gallery Hub</a>
       <a class="navbar-brand" href="{% url 'index' %}">Home</a>
     </div>
 
-    Adding a search form  -->
+    <!-- Adding a search form  -->
     <div class="col-sm-4 col-md-4 navbar-right">
+
       <form class="navbar-form" role="search" action="{% url 'search_category' %}">
 
         <div class="input-group">
@@ -18,7 +18,8 @@
         </div>
 
       </form>
-    </div> 
-   <!-- search form end -->
+    </div>
+    <!-- search form end -->
   </div>
 </nav>
+
