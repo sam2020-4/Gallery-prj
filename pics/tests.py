@@ -4,7 +4,7 @@ from .models import Location, Category, Image
 # Create your tests here.
 class LocationTestClass(TestCase):
     def setUp(self):
-        self.location = Location(location_name='Nairobi')
+        self.location = Location(location_name='uk')
         self.location.save()
 
     def tearDown(self):

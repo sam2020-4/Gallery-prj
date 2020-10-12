@@ -4,15 +4,15 @@ from .models import Image, Category, Location
 
 
 # Create your views here.
-def index(request):    
-    return render(request, 'index.html')
+# def index(request):    
+#     return render(request, 'index.html')
 
-def gallery(request):
+def display(request):
     images = Image.objects.all()
     categories = Category.objects.all()
     location = Location.objects.all()
 
-    return render(request, 'gallery.html', {"images":images, "categories":categories,"location":location})
+    return render(request, 'display.html', {"images":images, "categories":categories,"location":location})
 
 def search_category(request):
     if 'image' in request.GET and request.GET["image"]:
@@ -20,9 +20,9 @@ def search_category(request):
         searched_images = Image.search_by_image_category(search_term)
         message = f"{search_term}"
 
-        return render(request, 'category.html', {"message": message, "images": searched_images})
+        return render(request, 'search.html', {"message": message, "images": searched_images})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'category.html', {"message": message})
+        return render(request, 'search.html', {"message": message})
 

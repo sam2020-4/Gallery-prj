@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-# db relashionships
+# relations and db relashionships
 class Category(models.Model):
     category_name = models.CharField(max_length =30)
 
