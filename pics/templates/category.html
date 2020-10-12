@@ -5,12 +5,17 @@
 <div class="container">
     <br><br>
     <hr>
-    <h2 class="text-center">view category images</h2>
-
+    <div class="row">
+        {% if images%}
+        <h2>Found {{ images|length }} images for this category</h2>
+        {% else %}
+        <h3> Oops Sorry!!! There are no Images for you in this category</h3>
+        {% endif %}    
+    </div>  
 
     <div class="row">
     {% for image in images %}
-        <div class="col-md-4 col-sm-3 col-xs-3 p-2">
+        <div class="col-md-3 col-sm-3 col-xs-3 p-2">
             <img class="card-img-top img-responsive" id="img{{image.id}}" src="{{image.image.url}}" alt="Card image cap">
             <!-- <p class="card-text">Image Name: {{image.image_name}}.</p>             -->
         </div>
