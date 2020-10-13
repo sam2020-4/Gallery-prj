@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 # relations and db relashionships
 class Category(models.Model):
     category_name = models.CharField(max_length =30)
@@ -14,10 +13,27 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
+class Location(models.Model):
+    location_name = models.CharField(max_length=30)
+
+    def save_location(self):
+        self.save()
+    
+    def delete_location(self):
+        self.delete()        
+
+    def __str__(self):
+        return self.location_name
+
+    @classmethod
+    def update_location(cls, id, value):
+        cls.objects.filter(id=id).update(location_name=value)
+
+# class method
 class Image(models.Model):    
-    image_name = models.CharField(max_length=20)
+    image_name = models.CharField(max_length=30)
     description = models.TextField()
-    author = models.CharField(max_length=10, default='Jack Zollo')
+    author = models.CharField(max_length=30, default='Jack Zollo')
     image = models.ImageField(upload_to = 'media/' )
     image_location = models.ForeignKey('Location',on_delete=models.CASCADE)
     image_category = models.ForeignKey('Category',on_delete=models.CASCADE)    
@@ -41,18 +57,4 @@ class Image(models.Model):
         pics = cls.objects.filter(image_category__category_name__icontains=search_term)
         return pics
 
-class Location(models.Model):
-    location_name = models.CharField(max_length=30)
-
-    def save_location(self):
-        self.save()
     
-    def delete_location(self):
-        self.delete()        
-
-    def __str__(self):
-        return self.location_name
-
-    @classmethod
-    def update_location(cls, id, value):
-        cls.objects.filter(id=id).update(location_name=value)

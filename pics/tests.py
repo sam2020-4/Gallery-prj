@@ -4,20 +4,25 @@ from .models import Location, Category, Image
 # Create your tests here.
 class LocationTestClass(TestCase):
     def setUp(self):
-        self.location = Location(location_name='uk')
-        self.location.save()
+        self.location_name = Location(location_name='uk')
+        self.location_name.save()
 
     def tearDown(self):
-        Location.objects.all().delete()
+        location_name.delete()
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.location, Location))
+        self.assertTrue(isinstance(self.location_name, Location))
 
     def test_save_location(self):
         Location.objects.all().delete()
-        self.location.save_location()
-        locations = Location.objects.all()
-        self.assertTrue(len(locations) > 0)
+        self.location_name.save_location_name()
+        location_name = Location.objects.all()
+        self.assertTrue(len(location_name) > 0)
+
+    def test_delete_location(self):
+        self.location_name.delete_location()
+        location_name = Location.objects.all()
+        self.assertTrue(len(location_name) == 0)   
 
     def test_update_location(self):
         new_location_name = 'kenya'
@@ -25,10 +30,9 @@ class LocationTestClass(TestCase):
         updated_location = Location.objects.filter(location_name='kenya')
         self.assertTrue(len(updated_location) > 0)
 
-    def test_delete_location(self):
-        self.location.delete_location()
-        location = Location.objects.all()
-        self.assertTrue(len(location) == 0)
+    
+
+        
 
 # class CategoryTestClass(TestCase):
 #     def setUp(self):
