@@ -29,7 +29,7 @@ Matata Samuel
 ##### Open the project on your terminal:
   - ```atom . or code .``` , according to the type of your text editor.
 ##### Move to your project directory:
-  - ```cd Gallery-prj```.
+  - ```cd Gallery```.
 ##### Install virtual environment using python:
   - ```python3.8 -m venv virtual```, check your project to confirm you have a folder called virtual,
   - then activate it by running ```source virtual/bin/activate```
