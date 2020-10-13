@@ -5,7 +5,7 @@
 <div class="container">
     <br><br>
     <hr>
-    <div class="row">
+    <div class="container text-center pageerror">
         {% if images%}
         <h2>Found {{ images|length }} images for this Search Name</h2>
         {% else %}
@@ -53,13 +53,20 @@
             </div>            
           </div>
         </div>
-      </div>
+      </div>      
 
-    </div>     
+    </div>        
+
     {% empty %}    
-    {% endfor %}    
+    {% endfor %} 
+       
   </div>
 </div>
+<br>
+<div class="container text-center">   
+   <a target="_blank" href="{%url 'display'%}" class="btn btn-outline-info">Go back to Gallery</a>
+</div>
+
 {% endblock %}
 
 
