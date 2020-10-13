@@ -1,43 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
 {{block.super}}
-<!--displaying all images-->
-<div class="container mt-3">
-<div class="row">
-<div class="card-columns">
-    {%for image in images%}
-    <div class="card">
-        <!-- Image trigger modal -->
-        <img src="{{image.image.url}}" height="300vh" data-toggle="modal" data-target="#im{{image.id}}" class="card-img-top" alt="{{image.image_name}}">
-        <!-- Modal -->
-        <div class="modal fade" id="im{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <h5 class="modal-title text-center" id="exampleModal3Label">{{image.image_name}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                <div class="modal-header">
-                    <img src="{{image.image.url}}"  class="card-img-top" alt="{{image.image_name}}">
-                </div>
-         <div class="modal-body">
-             <h5>{{image.image_description}}</h5>
-             <p class="text-muted">
-               Category: ~{{image.category}}~
-                <br>Location: ~{{image.img_location}}~</p>
-            <input type="text" id="input" value="https://me-gallery.herokuapp.com{{image.image.url}}">
 
+<div class="container">
+  <br><hr>
+  <h1>View Images</h1>  
+  <hr>
+  <div class="row">  
+    {%for image in images%}
+    <div class="col-md-3 p-2">
+      <div class="card">       
+        <img src="{{image.image.url}}"  data-toggle="modal" data-target="#im{{image.id}}" class="card-img-top" alt="{{image.image_name}}">
+          
+          <!-- Modal -->
+        <div class="modal fade" id="im{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <h5 class="modal-title text-center" id="exampleModal3Label">{{image.image_name}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <div class="modal-header">
+                      <img src="{{image.image.url}}"  class="card-img-top" alt="{{image.image_name}}">
+                  </div>
+
+              <div class="modal-body">
+                <p>Image Description: "{{image.description}}"</p>
+                  <p class="text-muted">Category: ***{{image.image_category}}***</p>
+                  <p class="text-muted">Location: ***{{image.image_location}}***</p>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-info" data-dismiss="modal"><a href="https://galleryhub.herokuapp.com{{image.image.url}}"></a>copy</button>
+                <button type="button" class="btn  btn-outline-info btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+             
+                <span class="mr-4">Share</span>
+                <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
+                <!--Twitter-->
+                <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
+                <!--Google +-->
+                <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
+                <!--Linkedin-->
+                <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>            
+          </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+
+    </div>     
+    {% empty %}    
+    {% endfor %}    
   </div>
-</div>
-        {% empty %}
-        {% endfor %}
-    </div>
-</div>
 </div>
 {% endblock %}
